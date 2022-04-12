@@ -21,3 +21,5 @@ RUN python -m pip install \
     scipy \
     ipython \
     scikit-learn
+
+RUN echo "alias p='python'" >> /root/.bashrc

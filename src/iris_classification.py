@@ -36,3 +36,21 @@ iris_dataset = load_iris()
 #  [4.6 3.1 1.5 0.2]
 #  [5.  3.6 1.4 0.2]]
 # print('First five columns of data: \n{}'.format(iris_dataset['data'][:5]))
+
+from sklearn.model_selection import train_test_split
+
+# 全データを訓練セット75%とテストセット25%に分ける
+X_train, X_test, y_train, y_test = train_test_split(
+  iris_dataset['data'],
+  iris_dataset['target'],
+  random_state=0
+)
+# X_train shape: (112, 4)
+# y_train shape: (112,)
+# print('X_train shape: {}'.format(X_train.shape))
+# print('y_train shape: {}'.format(y_train.shape))
+
+# X_test shape: (38, 4)
+# y_test shape: (38,)
+# print('X_test shape: {}'.format(X_test.shape))
+# print('y_test shape: {}'.format(y_test.shape))

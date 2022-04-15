@@ -18,3 +18,6 @@ print('IPython version: {}'.format(ip.__version__))
 
 import sklearn as skl
 print('scikit-learn version: {}'.format(skl.__version__))
+
+import mglearn
+print('mglearn version: {}'.format(mglearn.__version__))

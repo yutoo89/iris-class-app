@@ -20,6 +20,7 @@ RUN python -m pip install \
     numpy \
     scipy \
     ipython \
-    scikit-learn
+    scikit-learn \
+    mglearn
 
 RUN echo "alias p='python'" >> /root/.bashrc

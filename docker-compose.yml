@@ -6,3 +6,6 @@ services:
     tty: true
     volumes:
       - ./src:/root/src
+      - ./config:/root/.config/matplotlib
+    ports:
+      - "8888:8888"

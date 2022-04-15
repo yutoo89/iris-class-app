@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3.9-buster
 USER root
 
 RUN apt-get update
@@ -9,6 +9,9 @@ ENV LANGUAGE ja_JP:ja
 ENV LC_ALL ja_JP.UTF-8
 ENV TZ JST-9
 ENV TERM xterm
+
+# 日本語 font のインストール
+RUN apt-get install -y fonts-noto-cjk
 
 RUN apt-get install -y vim less
 RUN pip install --upgrade pip
@@ -21,6 +24,8 @@ RUN python -m pip install \
     scipy \
     ipython \
     scikit-learn \
-    mglearn
+    mglearn \
+    jupyterlab \
+    notebook
 
 RUN echo "alias p='python'" >> /root/.bashrc

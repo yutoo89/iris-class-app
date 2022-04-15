@@ -61,4 +61,31 @@ import pandas as pd
 import mglearn
 iris_dataframe = pd.DataFrame(X_train, columns=iris_dataset.feature_names)
 # DataFrameからscatter matrixを作成し、y_trainに従って色をつける
-grr = pd.plotting.scatter_matrix(iris_dataframe, c=y_train, figsize=(15,15), marker="o",hist_kwds={'bins':20}, s=60, alpha=.8, cmap=mglearn.cm3)
+# grr = pd.plotting.scatter_matrix(iris_dataframe, c=y_train, figsize=(15,15), marker="o",hist_kwds={'bins':20}, s=60, alpha=.8, cmap=mglearn.cm3)
+
+# k-最近傍法クラス分類アルゴリズムはKNeighborsClassifierに実装されている
+from sklearn.neighbors import KNeighborsClassifier
+knn = KNeighborsClassifier(n_neighbors=1)
+knn.fit(X_train, y_train)
+
+import numpy as np
+
+# X_new = np.array([[5, 2.9, 1, 0.2]])
+# X_name.shape: (1, 4)
+# print('X_name.shape: {}'.format(X_new.shape))
+
+# prediction = knn.predict(X_new)
+# Prediction: [0]
+# Predicted target name: ['setosa']
+# print('Prediction: {}'.format(prediction))
+# print('Predicted target name: {}'.format(iris_dataset['target_names'][prediction]))
+
+y_pred = knn.predict(X_test)
+# 予測結果の表示
+# Test set prediction:
+# [2 1 0 2 0 2 0 1 1 1 2 1 1 1 1 0 1 1 0 0 2 1 0 0 2 0 0 1 1 0 2 1 0 2 2 1 0 2]
+print('Test set prediction: {}'.format(y_pred))
+
+# モデルの精度の評価
+# Test set score: 0.97
+print('Test set score: {:.2f}'.format(np.mean(y_pred == y_test)))

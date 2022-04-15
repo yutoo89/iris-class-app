@@ -54,3 +54,11 @@ X_train, X_test, y_train, y_test = train_test_split(
 # y_test shape: (38,)
 # print('X_test shape: {}'.format(X_test.shape))
 # print('y_test shape: {}'.format(y_test.shape))
+
+# X_trainのデータからDataFrameを作成
+# iris_dataset.feature_namesの文字列を使ってカラムに名前をつける
+import pandas as pd
+import mglearn
+iris_dataframe = pd.DataFrame(X_train, columns=iris_dataset.feature_names)
+# DataFrameからscatter matrixを作成し、y_trainに従って色をつける
+grr = pd.plotting.scatter_matrix(iris_dataframe, c=y_train, figsize=(15,15), marker="o",hist_kwds={'bins':20}, s=60, alpha=.8, cmap=mglearn.cm3)
